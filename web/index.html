@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор случайных чисел и строк</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <div id="main-screen" class="screen active">
+            <h1>Генератор случайных чисел и строк</h1>
+            <p class="subtitle">Простой инструмент для генерации случайных данных.</p>
+            <div class="button-group">
+                <button id="btn-to-numbers">Генерация чисел</button>
+                <button id="btn-to-strings">Генерация строк</button>
+                <button id="btn-to-settings" class="secondary">Настройки</button>
+                <button id="btn-to-help" class="secondary">Справка</button>
+            </div>
+        </div>
+
+        <div id="number-generator-screen" class="screen">
+            <h2>Генерация случайных чисел</h2>
+            <form id="number-form">
+                <div class="control-group">
+                    <label for="num-type">Тип чисел:</label>
+                    <select id="num-type">
+                        <option value="integer">Целые</option>
+                        <option value="float">Вещественные</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="num-min">Минимальное значение:</label>
+                    <input type="number" id="num-min" value="1" required>
+                </div>
+                <div class="control-group">
+                    <label for="num-max">Максимальное значение:</label>
+                    <input type="number" id="num-max" value="100" required>
+                </div>
+                <div class="control-group">
+                    <label for="num-count">Количество чисел:</label>
+                    <input type="number" id="num-count" value="10" min="1" max="10000" required>
+                </div>
+                <div class="control-group" id="float-precision-group" style="display: none;">
+                    <label for="num-precision">Точность (знаков после запятой):</label>
+                    <input type="number" id="num-precision" value="2" min="0" max="10">
+                </div>
+                <div class="button-group">
+                    <button type="submit" class="action-button">Сгенерировать</button>
+                </div>
+            </form>
+            <div class="control-group">
+                <label>Результат:</label>
+                <div id="number-result-area" class="result-area"></div>
+            </div>
+            <div class="button-group">
+                <button id="copy-numbers-btn">Копировать</button>
+                <button id="save-numbers-btn">Сохранить в файл</button>
+                <button class="btn-to-main secondary">На главный</button>
+            </div>
+        </div>
+
+        <div id="string-generator-screen" class="screen">
+            <h2>Генерация случайных строк</h2>
+            <form id="string-form">
+                <div class="control-group">
+                    <label for="str-length">Длина строки:</label>
+                    <input type="number" id="str-length" value="10" min="1" max="1000" required>
+                </div>
+                <div class="control-group">
+                    <label>Набор символов:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="char-upper" checked> Буквы верхнего регистра (A-Z)</label><br>
+                        <label><input type="checkbox" id="char-lower" checked> Буквы нижнего регистра (a-z)</label><br>
+                        <label><input type="checkbox" id="char-digits" checked> Цифры (0-9)</label><br>
+                        <label><input type="checkbox" id="char-symbols"> Специальные символы (!@#$...)</label>
+                    </div>
+                </div>
+                 <div class="control-group">
+                    <label for="str-exclude">Исключить символы (без пробелов):</label>
+                    <input type="text" id="str-exclude" placeholder="Например: oO0lI">
+                </div>
+                <div class="control-group">
+                    <label for="str-count">Количество строк:</label>
+                    <input type="number" id="str-count" value="5" min="1" max="1000" required>
+                </div>
+                <div class="button-group">
+                    <button type="submit" class="action-button">Сгенерировать</button>
+                </div>
+            </form>
+            <div class="control-group">
+                <label>Результат:</label>
+                <div id="string-result-area" class="result-area"></div>
+            </div>
+            <div class="button-group">
+                <button id="copy-strings-btn">Копировать</button>
+                <button id="save-strings-btn">Сохранить в файл</button>
+                <button class="btn-to-main secondary">На главный</button>
+            </div>
+        </div>
+
+        <div id="settings-screen" class="screen">
+            <h2>Настройки</h2>
+            <div class="placeholder-text">
+                <p>Здесь могли бы быть настройки по умолчанию для генерации чисел и строк, а также выбор темы оформления.</p>
+                <p>Например:</p>
+                <ul>
+                    <li>Тип чисел по умолчанию: Целые</li>
+                    <li>Диапазон чисел по умолчанию: от 1 до 100</li>
+                    <li>Длина строки по умолчанию: 12</li>
+                    <li>Набор символов по умолчанию: Буквы верхнего/нижнего регистра, цифры</li>
+                </ul>
+                <p><em>Эти настройки пока не реализованы функционально.</em></p>
+            </div>
+             <div class="button-group">
+                <button class="btn-to-main secondary">На главный</button>
+            </div>
+        </div>
+
+        <div id="help-screen" class="screen">
+            <h2>Справка</h2>
+            <div class="placeholder-text" style="text-align: left;">
+                <h4>Как использовать приложение?</h4>
+                <p>- На главном экране выберите тип генерации: "Генерация чисел" или "Генерация строк".</p>
+                <p>- На экране генерации укажите необходимые параметры в соответствующих полях.</p>
+                <p>- Нажмите кнопку "Сгенерировать".</p>
+                <p>- Результат появится в области предварительного просмотра.</p>
+                <p>- Вы можете скопировать результат в буфер обмена или сохранить его в текстовый файл.</p>
+                
+                <h4>Часто задаваемые вопросы (FAQ):</h4>
+                <p><strong>В: Как сохранить сгенерированные данные?</strong><br>
+                   О: Нажмите кнопку "Сохранить в файл" под областью результатов. Файл будет загружен вашим браузером.</p>
+                <p><strong>В: Могу ли я генерировать очень большие числа или длинные строки?</strong><br>
+                   О: Да, но будьте осторожны с очень большими значениями количества (установлен лимит 10000 для чисел и 1000 для строк/длины), так как это может занять время и потребить ресурсы браузера.</p>
+                <p><strong>В: Какие специальные символы используются?</strong><br>
+                   О: Стандартный набор включает: !@#$%^&amp;*()_+-=[]{}|;:',./&lt;&gt;?</p> </div>
+            <div class="button-group">
+                <button class="btn-to-main secondary">На главный</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="utils.js"></script> <script src="script.js"></script> </body>
+</html>

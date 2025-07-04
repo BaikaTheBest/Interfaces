@@ -1,0 +1,193 @@
+/* Глобальные стили и сброс */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Убираем прокрутку на body */
+}
+
+#app-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto; /* Добавляем прокрутку для контейнера, если контент не помещается */
+}
+
+.screen {
+    display: none; /* Скрываем все экраны по умолчанию */
+    width: 100%;
+    max-width: 800px; /* Ограничиваем максимальную ширину для лучшей читаемости */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px; 
+}
+
+.screen.active {
+    display: block; /* Показываем активный экран */
+}
+
+h1 {
+    color: #1a73e8;
+    margin-bottom: 15px; /* Уменьшил для подзаголовка */
+    font-size: 2.5em; 
+}
+
+h2 {
+    color: #1a73e8;
+    margin-bottom: 25px;
+    font-size: 2em; 
+    margin-top: 0;
+}
+
+.subtitle {
+    font-size: 1.2em; 
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* Элементы управления */
+.control-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1.1em; 
+    color: #555;
+}
+
+.control-group input[type="text"],
+.control-group input[type="number"],
+.control-group select {
+    width: 100%;
+    padding: 15px; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1em; 
+    transition: border-color 0.3s;
+}
+
+.control-group input[type="text"]:focus,
+.control-group input[type="number"]:focus,
+.control-group select:focus {
+    border-color: #1a73e8;
+    outline: none;
+}
+
+.checkbox-group label {
+    display: block; /* Каждый чекбокс с новой строки для лучшей читаемости */
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 1em;
+    cursor: pointer;
+}
+ 
+.checkbox-group input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.2); 
+    vertical-align: middle;
+}
+
+/* Кнопки */
+.button-group {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; 
+    justify-content: center;
+}
+
+button {
+    padding: 18px 30px; 
+    font-size: 1.2em; 
+    font-weight: bold;
+    color: #fff;
+    background-color: #1a73e8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    min-width: 200px; 
+}
+
+button:hover {
+    background-color: #155ab6;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button.secondary {
+    background-color: #6c757d;
+}
+
+button.secondary:hover {
+    background-color: #5a6268;
+}
+
+button.action-button { 
+     background-color: #28a745; 
+     min-width: auto;
+}
+
+button.action-button:hover {
+    background-color: #218838;
+}
+
+/* Область результатов */
+.result-area {
+    margin-top: 10px; /* Уменьшил немного, т.к. label уже есть */
+    padding: 15px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    min-height: 100px; 
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+    text-align: left;
+    font-size: 1.1em;
+}
+
+#string-result-area {
+    min-height: 150px;
+}
+
+/* Стили для простоты в разделах "Настройки" и "Справка" */
+.placeholder-text {
+    font-size: 1.1em;
+    color: #777;
+    line-height: 1.6;
+}
+
+.placeholder-text ul {
+    list-style-position: inside;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+.placeholder-text ul li {
+    margin-bottom: 5px;
+}
